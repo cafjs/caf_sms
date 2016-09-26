@@ -1,0 +1,25 @@
+{
+    "name": "top",
+    "env" : {
+        "appPublisher" :"root",
+        "appLocalName" : "test",
+        "appSuffix" : "vcap.me"
+    },
+    "components": [
+        {
+            "name": "security",
+            "module": null
+        },
+        {
+            "name": "cp"
+        },
+        {
+            "name": "sms",
+            "module": "../../index.js#plug",
+            "description": "Service to send SMS messages",
+            "env" : {
+                "smsURL": "process.env.SMS_URL||https://rest.nexmo.com/sms/json"
+            }
+        }
+    ]
+}

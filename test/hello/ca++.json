@@ -1,0 +1,30 @@
+{
+    "name" : "ca",
+    "components" : [
+        {
+            "name": "log"
+        },
+        {
+            "name": "security",
+            "module": null
+        },
+        {
+            "module": "../../index.js#plug_ca",
+            "name": "sms",
+            "description": "SMS service for this CA.",
+            "env" : {
+                "maxRetries" : "$._.env.maxRetries",
+                "retryDelay" : "$._.env.retryDelay"
+            },
+            "components" : [
+                {
+                    "module": "../../index.js#proxy",
+                    "name": "proxy",
+                    "description": "Proxy to sms services for this CA",
+                    "env" : {
+                    }
+                }
+            ]
+        }
+    ]
+}
